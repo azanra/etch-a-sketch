@@ -1,0 +1,23 @@
+.container,
+.gridSquare {
+    border: 2px solid black;
+}
+
+.container {
+    height: 860px;
+    width: 870px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gridSquare {
+    height: 50px;
+    width: 50px;
+    flex: 1 1 auto;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
