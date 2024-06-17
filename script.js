@@ -34,10 +34,24 @@ function removeGrid() {
     });
 };
 
+function setSize() {
+    const btnSize = document.querySelector("#btn");
+    btnSize.addEventListener("click", () => {
+        do {
+            inputSize = prompt("Input the size of the canvas!");
+        }
+        while(inputSize >= 100 || inputSize <= 0)
+        
+        rowAmount = inputSize;
+        columnAmount = inputSize;
+        removeGrid();
+        createGrid(rowAmount, columnAmount);
+    })
+}
 
 defaultGrid();
 createGrid(rowAmount, columnAmount);
 hoverOnGrid();
-
+setSize();
 
 
