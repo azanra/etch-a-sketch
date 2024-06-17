@@ -16,8 +16,12 @@
     flex: 1 1 auto;
 }
 
-body {
+.grid, .btnInput {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.btnInput {
+    margin-bottom: 25px;
 }

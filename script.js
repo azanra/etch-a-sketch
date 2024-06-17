@@ -26,7 +26,18 @@ function hoverOnGrid() {
     });
 }
 
+function removeGrid() {
+    const container = document.querySelector('.container');
+    const gridSquare = document.querySelectorAll(".gridSquare");
+    gridSquare.forEach((grid) => {
+        container.removeChild(grid);
+    });
+};
+
+
 defaultGrid();
-console.log(rowAmount, columnAmount);
 createGrid(rowAmount, columnAmount);
 hoverOnGrid();
+
+
+
