@@ -23,7 +23,11 @@ function hoverOnGrid() {
     const hoverGrid = document.querySelectorAll('.gridSquare');
     hoverGrid.forEach((grid) => {
         grid.addEventListener("mouseover", () => {
-            grid.style.backgroundColor = 'grey';
+            var red = Math.floor(Math.random() * 256);
+            var green = Math.floor(Math.random() * 256);
+            var blue = Math.floor(Math.random() * 256);
+            var randomColor = "rgb(" + red + "," + green +"," + blue +")";
+            grid.style.backgroundColor = randomColor;
         });
     });
 }
@@ -40,7 +44,7 @@ function setSize() {
     const btnSize = document.querySelector("#btn");
     btnSize.addEventListener("click", () => {
         do {
-            inputSize = prompt("Input the size of the canvas! (Less than 100 and greater than 0!)");
+            inputSize = prompt("Input the size of the canvas! (1 - 100)");
         }
         while(inputSize >= 100 || inputSize <= 0)
         
