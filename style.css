@@ -4,16 +4,15 @@
 }
 
 .container {
-    height: 860px;
-    width: 870px;
     display: flex;
     flex-wrap: wrap;
+    width: 1024px;
+    height: 1024px;
 }
 
-.gridSquare {
-    height: 50px;
-    width: 50px;
-    flex: 1 1 auto;
+.gridSquare {   
+    aspect-ratio: 1/1;
+    flex: 1 1 60px;
 }
 
 .grid, .btnInput {
