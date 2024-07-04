@@ -3,9 +3,9 @@ let columnAmount;
 let defaultAmount;
 
 function defaultGrid() {
-    rowAmount = 16;
-    columnAmount = 16;
     defaultAmount = 16;
+    rowAmount = defaultAmount;
+    columnAmount = defaultAmount;
 }
 
 function createGrid(rowAmount, columnAmount) {
@@ -23,9 +23,10 @@ function hoverOnGrid() {
     const hoverGrid = document.querySelectorAll('.gridSquare');
     hoverGrid.forEach((grid) => {
         grid.addEventListener("mouseover", () => {
-            var red = Math.floor(Math.random() * 256);
-            var green = Math.floor(Math.random() * 256);
-            var blue = Math.floor(Math.random() * 256);
+            const rgbAmount = 256;
+            var red = Math.floor(Math.random() * rgbAmount);
+            var green = Math.floor(Math.random() * rgbAmount);
+            var blue = Math.floor(Math.random() * rgbAmount);
             var randomColor = "rgb(" + red + "," + green +"," + blue +")";
             grid.style.backgroundColor = randomColor;
         });
@@ -65,16 +66,13 @@ function setBasis(inputSize) {
 }
 
 function decideBasis(inputSize, defaultAmount) {
-    if(inputSize > 16){
-        inputSize = (defaultAmount /  inputSize) * 60;
-        inputSize = inputSize - 2;
-        setBasis(inputSize);
-    }
-    else {
-        inputSize = (defaultAmount /  inputSize) * 60;
-        setBasis(inputSize);
-    }
+    const cssBasis = 60;
+
+    inputSize = (defaultAmount /  inputSize) * cssBasis;
+    console.log(inputSize);
+    setBasis(inputSize);
 }
+
 
 defaultGrid();
 createGrid(rowAmount, columnAmount);
