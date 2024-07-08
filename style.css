@@ -12,9 +12,7 @@
 
 .gridSquare {   
     aspect-ratio: 1/1;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: 60px;
+    flex: 1 1 60px;
     box-sizing: border-box;
 }
 

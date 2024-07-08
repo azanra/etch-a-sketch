@@ -1,6 +1,7 @@
 let rowAmount;
 let columnAmount;
 let defaultAmount;
+let defaultOpacity;
 
 function defaultGrid() {
     defaultAmount = 16;
@@ -19,7 +20,7 @@ function createGrid(rowAmount, columnAmount) {
     }
 }
 
-function hoverOnGrid() {
+function randomColor(){
     const hoverGrid = document.querySelectorAll('.gridSquare');
     hoverGrid.forEach((grid) => {
         grid.addEventListener("mouseover", () => {
@@ -31,6 +32,25 @@ function hoverOnGrid() {
             grid.style.backgroundColor = randomColor;
         });
     });
+}
+
+function changeOpacity() {
+    defaultOpacity = 0;
+    const gridOpac = document.querySelectorAll('.gridSquare');
+    gridOpac.forEach((opac) => {
+        opac.addEventListener("mouseover", () => {
+            const incrementOpacity = 0.1;
+            if(defaultOpacity <= 1){
+                opac.style.opacity = defaultOpacity + incrementOpacity;
+                defaultOpacity += incrementOpacity
+            }
+        })
+    })
+}
+
+function hoverOnGrid() {
+    randomColor();
+    changeOpacity();
 }
 
 function removeGrid() {
