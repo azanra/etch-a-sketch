@@ -1,7 +1,7 @@
 let rowAmount;
 let columnAmount;
 let defaultAmount;
-let defaultOpacity;
+let currentOpac;
 
 function defaultGrid() {
     defaultAmount = 16;
@@ -35,15 +35,16 @@ function randomColor(){
 }
 
 function changeOpacity() {
-    defaultOpacity = 0;
+    currentOpac = 0;
     const gridOpac = document.querySelectorAll('.gridSquare');
     gridOpac.forEach((opac) => {
         opac.addEventListener("mouseover", () => {
-            const incrementOpacity = 0.1;
-            if(defaultOpacity <= 1){
-                opac.style.opacity = defaultOpacity + incrementOpacity;
-                defaultOpacity += incrementOpacity
-            }
+            const incrementOpacity = 0.1;   
+                currentOpac = opac.style.opacity;
+                currentOpac = Number(currentOpac);
+                if(currentOpac < 1){
+                    opac.style.opacity = currentOpac + incrementOpacity;
+                }
         })
     })
 }
