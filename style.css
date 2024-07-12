@@ -24,11 +24,18 @@
 
 .btnInput {
     margin-bottom: 25px;
+    gap: 50px;
 }
 
-#btn {
-    padding: 15px 85px;
+#sizeBtn, #resetBtn {
     font-size: 15px;
     border-radius: 5px;
 }
 
+#sizeBtn {
+    padding: 15px 85px;
+}
+
+#resetBtn {
+    padding: 15px 70px;
+}

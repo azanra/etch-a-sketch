@@ -2,6 +2,7 @@ let rowAmount;
 let columnAmount;
 let defaultAmount;
 let currentOpac;
+let inputSize;    
 
 function defaultGrid() {
     defaultAmount = 16;
@@ -60,16 +61,27 @@ function removeGrid() {
     gridSquare.forEach((grid) => {
         container.removeChild(grid);
     });
-};  
+}
+
+function deleteButton(){
+    const resetButton = document.querySelector('#resetBtn');
+    resetButton.addEventListener("click", () => {
+        removeGrid();
+        createGrid(rowAmount, columnAmount);
+        decideBasis(inputSize, defaultAmount);
+        hoverOnGrid();
+    })
+}
 
 function setSize() {
-    const btnSize = document.querySelector("#btn");
+    const btnSize = document.querySelector("#sizeBtn");
     btnSize.addEventListener("click", () => {
         do {
             inputSize = prompt("Input the size of the canvas! (1 - 100)");
         }
         while(inputSize >= 100 || inputSize <= 0)
-        
+
+        inputSize = Number(inputSize);
         rowAmount = inputSize;
         columnAmount = inputSize;
         removeGrid();
@@ -88,9 +100,7 @@ function setBasis(inputSize) {
 
 function decideBasis(inputSize, defaultAmount) {
     const cssBasis = 60;
-
     inputSize = (defaultAmount /  inputSize) * cssBasis;
-    console.log(inputSize);
     setBasis(inputSize);
 }
 
@@ -99,5 +109,4 @@ defaultGrid();
 createGrid(rowAmount, columnAmount);
 hoverOnGrid();
 setSize();
-
-
+deleteButton();
